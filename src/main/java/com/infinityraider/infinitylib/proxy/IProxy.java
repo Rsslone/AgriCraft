@@ -98,18 +98,20 @@ public interface IProxy extends IProxyBase {
         // Block Recipes
         if (mod.getModBlockRegistry() != null) {
             ReflectionHelper.forEachValueIn(mod.getModBlockRegistry(), IRecipeRegisterer.class, (r) -> {
-                if (r instanceof IToggleable && ((IToggleable) r).isEnabled()) {
-                    r.registerRecipes(registry);
+                if (r instanceof IToggleable && !((IToggleable) r).isEnabled()) {
+                    return;
                 }
+                r.registerRecipes(registry);
             });
         }
         
         // Item Recipes
         if (mod.getModItemRegistry() != null) {
             ReflectionHelper.forEachValueIn(mod.getModItemRegistry(), IRecipeRegisterer.class, (r) -> {
-                if (r instanceof IToggleable && ((IToggleable) r).isEnabled()) {
-                    r.registerRecipes(registry);
+                if (r instanceof IToggleable && !((IToggleable) r).isEnabled()) {
+                    return;
                 }
+                r.registerRecipes(registry);
             });
         }
     }
