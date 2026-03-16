@@ -10,6 +10,7 @@ import com.infinityraider.infinitylib.modules.Module;
 import com.infinityraider.infinitylib.proxy.base.IProxyBase;
 import com.infinityraider.infinitylib.sound.SidedSoundDelegate;
 import com.infinityraider.infinitylib.sound.SoundDelegateServer;
+import com.infinityraider.infinitylib.utility.IToggleable;
 import com.infinityraider.infinitylib.utility.ReflectionHelper;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
@@ -96,12 +97,20 @@ public interface IProxy extends IProxyBase {
     default void registerRecipes(InfinityMod mod, IForgeRegistry<IRecipe> registry) {
         // Block Recipes
         if (mod.getModBlockRegistry() != null) {
-            ReflectionHelper.forEachValueIn(mod.getModBlockRegistry(), IRecipeRegisterer.class, (r) -> r.registerRecipes(registry));
+            ReflectionHelper.forEachValueIn(mod.getModBlockRegistry(), IRecipeRegisterer.class, (r) -> {
+                if (r instanceof IToggleable && ((IToggleable) r).isEnabled()) {
+                    r.registerRecipes(registry);
+                }
+            });
         }
         
         // Item Recipes
         if (mod.getModItemRegistry() != null) {
-            ReflectionHelper.forEachValueIn(mod.getModItemRegistry(), IRecipeRegisterer.class, (r) -> r.registerRecipes(registry));
+            ReflectionHelper.forEachValueIn(mod.getModItemRegistry(), IRecipeRegisterer.class, (r) -> {
+                if (r instanceof IToggleable && ((IToggleable) r).isEnabled()) {
+                    r.registerRecipes(registry);
+                }
+            });
         }
     }
 
