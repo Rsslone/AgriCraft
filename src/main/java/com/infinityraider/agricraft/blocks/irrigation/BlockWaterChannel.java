@@ -125,20 +125,29 @@ public class BlockWaterChannel extends AbstractBlockWaterChannel<TileEntityChann
     @Override
     public void registerRecipes(IForgeRegistry<IRecipe> registry) {
         for (CustomWoodType type : CustomWoodTypeRegistry.getAllTypes()) {
-            NonNullList<Ingredient> ingredients = NonNullList.withSize(9, Ingredient.EMPTY);
+            // Entry recipe: wood planks (xWx / WxW / xWx) -> channel_normal (4x)
+            NonNullList<Ingredient> woodIngredients = NonNullList.withSize(9, Ingredient.EMPTY);
+            for (int i = 0; i <= 8; i++) {
+                if (i % 2 != 0) {
+                    woodIngredients.set(i, Ingredient.fromStacks(type.getStack()));
+                }
+            }
+            ItemStack normalResult = new ItemStack(this, 4, 0);
+            normalResult.setTagCompound(type.writeToNBT(new NBTTagCompound()));
+            registry.register(new CustomWoodShapedRecipe(type, this.getInternalName(), woodIngredients, normalResult));
 
+            // Conversion recipe: channel_normal (xNx / NxN / xNx) -> channel_full (4x)
+            NonNullList<Ingredient> normalIngredients = NonNullList.withSize(9, Ingredient.EMPTY);
             for (int i = 0; i <= 8; i++) {
                 if (i % 2 != 0) {
                     ItemStack stack = new ItemStack(this, 1, 0);
                     stack.setTagCompound(type.writeToNBT(new NBTTagCompound()));
-                    ingredients.set(i, Ingredient.fromStacks(stack));
+                    normalIngredients.set(i, Ingredient.fromStacks(stack));
                 }
             }
-
-            ItemStack result = new ItemStack(AgriBlocks.getInstance().CHANNEL_FULL, 4, 0);
-            result.setTagCompound(type.writeToNBT(new NBTTagCompound()));
-
-            registry.register(new CustomWoodShapedRecipe(type, "normal_to_full", ingredients, result));
+            ItemStack fullResult = new ItemStack(AgriBlocks.getInstance().CHANNEL_FULL, 4, 0);
+            fullResult.setTagCompound(type.writeToNBT(new NBTTagCompound()));
+            registry.register(new CustomWoodShapedRecipe(type, "normal_to_full", normalIngredients, fullResult));
         }
     }
 
