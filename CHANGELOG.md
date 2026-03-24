@@ -1,6 +1,8 @@
 # Changelog
 
 ## [2.17.2] - 2026-03-23
+
+### Fixed
 - Fixed normal irrigation channel recipe
 - Fixed normal/full irrigation channel conversion recipes not properly copying NBT
 
