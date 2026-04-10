@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.17.3] - 2026-04-10
+
+### Added
+- Added seed names to use lang files instead of hardcode english.
+
 ## [2.17.2] - 2026-03-23
 
 ### Fixed
