@@ -159,7 +159,7 @@ agricraft_journal.growthStages=Growth Stages
 agricraft_journal.mutations=Discovered Mutations
 
 // ========================================
-// Seed Names (from JSON data files)
+// Seed Names
 // ========================================
 agricraft.plant.botania.black_flower_plant.seed=Mystical Black Seeds
 agricraft.plant.botania.blue_flower_plant.seed=Mystical Blue Seeds
