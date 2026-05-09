@@ -1,9 +1,12 @@
 # Changelog
 
-## [2.17.3] - 2026-04-10
+## [2.17.3] - 2026-05-09
+
+### Changed
+- Seeds, Plants, Soils, Warn Messages, and Magnifier Brightness to use lang keys for multilingual support.
 
 ### Added
-- Added seed names to use lang files instead of hardcode english.
+- MTL strings for Non-English Seeds, Plants, Soils, Warn Messages, and Magnifier Brightness.
 
 ## [2.17.2] - 2026-03-23
 
