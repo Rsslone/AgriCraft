@@ -1031,3 +1031,9 @@ agricraft.soil.mycelium_soil.name=Micélio
 agricraft.soil.sand_soil.name=Areia
 agricraft.soil.soul_sand_soil.name=Areia de Alma
 
+// ===================================
+// Player Messages
+// ===================================
+agricraft_message.invalidSoil=O solo não é válido para esta semente. Você não pode plantá-la aqui.
+agricraft_message.unmetConditions=Atenção: Esta planta tem requisitos adicionais que não foram atendidos.
+agricraft_message.invalidLight=Atenção: Esta planta não crescerá com o nível de luz atual.

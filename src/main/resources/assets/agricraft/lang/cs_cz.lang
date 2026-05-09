@@ -1030,3 +1030,9 @@ agricraft.soil.mycelium_soil.name=Mycélium
 agricraft.soil.sand_soil.name=Písek
 agricraft.soil.soul_sand_soil.name=Soulový písek
 
+// ===================================
+// Player Messages
+// ===================================
+agricraft_message.invalidSoil=Půda není vhodná pro toto semeno. Nemůžete jej zde vysadit.
+agricraft_message.unmetConditions=Pozor: Tato rostlina má dodatečné požadavky, které nejsou splněny.
+agricraft_message.invalidLight=Pozor: Tato rostlina nepřežije při aktuální úrovni osvětlení.

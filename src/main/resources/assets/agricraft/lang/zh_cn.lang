@@ -1031,3 +1031,9 @@ agricraft.soil.mycelium_soil.name=菌丝体
 agricraft.soil.sand_soil.name=沙子
 agricraft.soil.soul_sand_soil.name=灵魂沙
 
+// ===================================
+// Player Messages
+// ===================================
+agricraft_message.invalidSoil=该土壤不适合此种子。您不能在这里种植它。
+agricraft_message.unmetConditions=警告：此植物有额外的要求尚未满足。
+agricraft_message.invalidLight=警告：此植物在当前光照水平下无法生长。

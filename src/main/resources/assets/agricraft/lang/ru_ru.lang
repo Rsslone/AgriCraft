@@ -1031,3 +1031,9 @@ agricraft.soil.mycelium_soil.name=Мицелий
 agricraft.soil.sand_soil.name=Песок
 agricraft.soil.soul_sand_soil.name=Песок души
 
+// ===================================
+// Player Messages
+// ===================================
+agricraft_message.invalidSoil=Почва не подходит для этого семени. Вы не можете посадить его здесь.
+agricraft_message.unmetConditions=Внимание: У этого растения есть дополнительные требования, которые не выполнены.
+agricraft_message.invalidLight=Внимание: Это растение не вырастет при текущем уровне освещения.

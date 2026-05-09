@@ -1028,3 +1028,9 @@ agricraft.soil.mycelium_soil.name=Mycélium
 agricraft.soil.sand_soil.name=Sable
 agricraft.soil.soul_sand_soil.name=Soul Sand
 
+// ===================================
+// Player Messages
+// ===================================
+agricraft_message.invalidSoil=Le sol n'est pas valide pour cette graine. Vous ne pouvez pas la planter ici.
+agricraft_message.unmetConditions=Attention : Cette plante a des exigences supplémentaires qui ne sont pas satisfaites.
+agricraft_message.invalidLight=Attention : Cette plante ne poussera pas avec le niveau de lumière actuel.

@@ -109,6 +109,13 @@ agricraft_tooltip.storage=Locked Seed
 agricraft_tooltip.none=none
 
 // ========================================
+// Player Messages
+// ========================================
+agricraft_message.invalidSoil=The soil is not valid for this seed. You can't plant it here.
+agricraft_message.unmetConditions=Caution: This plant has additional requirements that are unmet.
+agricraft_message.invalidLight=Caution: This plant won't grow with the current light level.
+
+// ========================================
 // Method Descriptions
 // ========================================
 agricraft_description.peripheralHelp=Method Help
