@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.17.3] - 2026-05-17
+
+### Fixed
+- Ambiguity introduced when reobfuscation (IItemHandler <-> IInventory: getStackInSlot)
+
 ## [2.17.2] - 2026-03-23
 
 ### Fixed
