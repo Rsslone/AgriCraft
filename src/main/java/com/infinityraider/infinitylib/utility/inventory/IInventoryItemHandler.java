@@ -2,12 +2,24 @@ package com.infinityraider.infinitylib.utility.inventory;
 
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.items.IItemHandler;
 
 /**
  * IInventory interface to link the IItemHandler methods automatically to the IInventory methods
  */
-public interface IInventoryItemHandler extends IInventory, IItemHandler {
+public interface IInventoryItemHandler extends IInventory, IItemHandlerBridge {
+
+    // Resolves compile-time ambiguity (IInventory abstract & IItemHandlerBridge default).
+    @Override
+    default ItemStack getStackInSlot(int slot) {
+        return getInventorySlot(slot);
+    }
+
+    // IItemHandlerBridge.getStackInSlot -> func_70301_a on implementing class.
+    @Override
+    default ItemStack getInventorySlot(int slot) {
+        return this.getStackInSlot(slot);
+    }
+
     @Override
     default int getSlots() {
         return this.getSizeInventory();

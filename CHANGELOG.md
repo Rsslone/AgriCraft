@@ -1,12 +1,9 @@
 # Changelog
 
-## [2.17.3] - 2026-05-09
+## [2.17.3] - 2026-05-17
 
-### Changed
-- Seeds, Plants, Soils, Warn Messages, and Magnifier Brightness to use lang keys for multilingual support.
-
-### Added
-- MTL strings for Non-English Seeds, Plants, Soils, Warn Messages, and Magnifier Brightness.
+### Fixed
+- Ambiguity introduced when reobfuscation (IItemHandler <-> IInventory: getStackInSlot)
 
 ## [2.17.2] - 2026-03-23
 
