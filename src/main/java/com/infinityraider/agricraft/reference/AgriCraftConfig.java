@@ -10,6 +10,7 @@ import com.agricraft.agricore.config.AgriConfigCategory;
 import com.agricraft.agricore.config.AgriConfigurable;
 import com.agricraft.agricore.core.AgriCore;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraftforge.fml.common.Loader;
 
 /**
  * AgriCraft Configuration File.
@@ -21,7 +22,7 @@ public class AgriCraftConfig {
     // Core
     @AgriConfigurable(category = AgriConfigCategory.CORE, key = "Crops per Craft", min = "1", max = "4", comment = "The number of crops you get per crafting operation.")
     public static int cropsPerCraft = 4;
-    @AgriConfigurable(category = AgriConfigCategory.CORE, key = "Crop Stat Cap", min = "1", max = "10", comment = "The maximum attainable value of the stats on a crop.")
+    @AgriConfigurable(category = AgriConfigCategory.CORE, key = "Crop Stat Cap", min = "1", max = "127", comment = "The maximum attainable value of the stats on a crop." + "\nValues higher than 10 have limited benefits, with only additional yield rolls being meaningful, and are not recommended.")
     public static int cropStatCap = 10;
     @AgriConfigurable(category = AgriConfigCategory.CORE, key = "Use boring alpha warning messages", comment = "Uses a boring one-line alpha warning message instead of the more interesting default ones.")
     public static boolean disableLinks = false;
@@ -132,6 +133,33 @@ public class AgriCraftConfig {
     // Decoration
     @AgriConfigurable(category = AgriConfigCategory.DECORATION, key = "Enable Grates", comment = "Set to false to disable the decorative custom wood grates.")
     public static boolean enableGrates = true;
+
+    // Compatibility
+    @AgriConfigurable(
+            category = AgriConfigCategory.COMPATIBILITY,
+            key = "Water Pad Compat Mode",
+            comment = "Controls how Water Pads can be created when Tea Story is also installed.\n"
+                    + "  none   = Default: shovel right-click on farmland creates a Water Pad.\n"
+                    + "  trowel = Only the AgriCraft trowel creates Water Pads.\n"
+                    + "  shift  = Shovel + Sneak creates a Water Pad.\n"
+                    + "  both   = Trowel OR Shift+Shovel creates a Water Pad.")
+    public static String waterPadCompatMode = "both";
+
+    private static Boolean teaStoryPresent = null;
+
+    public static WaterPadCompatMode getWaterPadCompatMode() {
+        if (teaStoryPresent == null) {
+            teaStoryPresent = Loader.isModLoaded("teastory");
+        }
+        if (!teaStoryPresent) {
+            return WaterPadCompatMode.NONE;
+        }
+        try {
+            return WaterPadCompatMode.valueOf(waterPadCompatMode.trim().toUpperCase());
+        } catch (IllegalArgumentException e) {
+            return WaterPadCompatMode.NONE;
+        }
+    }
 
     // Add to Configurator
     static {
